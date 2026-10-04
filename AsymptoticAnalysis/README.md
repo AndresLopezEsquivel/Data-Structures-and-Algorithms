@@ -25,3 +25,9 @@ Because inputs of the same size can require different numbers of operations, we 
 * **Average case:** the expected number of operations over all inputs of size $n$, assuming a specified distribution of inputs.
 
 Unless stated otherwise, $T(n)$ refers to the worst case, which guarantees that no input of size $n$ requires more than $T(n)$ operations.
+
+#### Memory usage $S(n)$
+
+$S(n)$ denotes the **memory usage** of an algorithm on an input of size $n$, measured in **units of space**, where each stored value, such as a number, a character, or a reference, counts as one unit. Counting units rather than bytes makes the measure independent of the machine on which the algorithm runs.
+
+Unless stated otherwise, $S(n)$ refers to the worst-case **auxiliary space**: the maximum extra memory used at any point during execution, over all inputs of size $n$. This includes new variables and data structures as well as the call stack used by recursion, but excludes the space occupied by the input itself.
