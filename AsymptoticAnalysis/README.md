@@ -31,3 +31,11 @@ Unless stated otherwise, $T(n)$ refers to the worst case, which guarantees that 
 $S(n)$ denotes the **memory usage** of an algorithm on an input of size $n$, measured in **units of space**, where each stored value, such as a number, a character, or a reference, counts as one unit. Counting units rather than bytes makes the measure independent of the machine on which the algorithm runs.
 
 Unless stated otherwise, $S(n)$ refers to the worst-case **auxiliary space**: the maximum extra memory used at any point during execution, over all inputs of size $n$. This includes new variables and data structures as well as the call stack used by recursion, but excludes the space occupied by the input itself.
+
+#### Functions $f(n)$ and $g(n)$
+
+$f(n)$ denotes the function being analyzed. In general, $f(n)$ can be any mathematical function of $n$, but in the analysis of algorithms it is usually $T(n)$ or $S(n)$. In principle, $f(n)$ is the exact number of operations or units of space, such as $f(n) = 2n^2 + n + 1$.
+
+$g(n)$ denotes a simpler **reference function**, such as $n$, $n \log n$, or $n^2$, used to describe how $f(n)$ grows. Rather than stating $f(n)$ exactly, we compare it against $g(n)$, ignoring constant factors and lower-order terms.
+
+In practice, determining $f(n)$ exactly is often difficult or unnecessary: the count depends on what we consider a basic operation, and some algorithms are too complex to count precisely. Asymptotic notation lets us bound $f(n)$ by $g(n)$ without knowing $f(n)$ exactly.
