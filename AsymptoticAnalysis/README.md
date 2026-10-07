@@ -39,3 +39,45 @@ $f(n)$ denotes the function being analyzed. In general, $f(n)$ can be any mathem
 $g(n)$ denotes a simpler **reference function**, such as $n$, $n \log n$, or $n^2$, used to describe how $f(n)$ grows. Rather than stating $f(n)$ exactly, we compare it against $g(n)$, ignoring constant factors and lower-order terms.
 
 In practice, determining $f(n)$ exactly is often difficult or unnecessary: the count depends on what we consider a basic operation, and some algorithms are too complex to count precisely. Asymptotic notation lets us bound $f(n)$ by $g(n)$ without knowing $f(n)$ exactly.
+
+### Big O
+
+For a function $g(n)$, $O(g(n))$ is the **set** of functions that grow no faster than $g(n)$, up to a constant factor:
+
+$$
+O(g(n)) = \{\, f(n) : \text{there exist positive constants } c \text{ and } n_0 \text{ such that } 0 \le f(n) \le c \cdot g(n) \text{ for all } n \ge n_0 \,\}
+$$
+
+In other words, $g(n)$ is an **asymptotic upper bound** for $f(n)$: once $n$ is large enough ($n \ge n_0$), $f(n)$ never exceeds $g(n)$ scaled by $c$. The condition $0 \le f(n)$ requires $f(n)$ to be **asymptotically nonnegative**, which always holds for $T(n)$ and $S(n)$.
+
+Since $O(g(n))$ is a set, we should write $f(n) \in O(g(n))$. By convention, however, we usually write $f(n) = O(g(n))$, an abuse of notation.
+
+![Graph of f(n) staying at or below c·g(n) for all n ≥ n₀](img/big_o_general.svg)
+
+#### Example
+
+**Claim:** $2n + 1 = O(n)$.
+
+**Proof.** Choose $c = 3$. We need $0 \le 2n + 1 \le 3n$ for all $n \ge n_0$, so we solve each inequality:
+
+- **Upper bound:** $2n + 1 \le 3n \iff 1 \le n$.
+- **Lower bound:** $0 \le 2n + 1 \iff n \ge -\frac{1}{2}$, which holds whenever $n \ge 1$.
+
+Both inequalities hold for all $n \ge 1$, so $n_0 = 1$. Therefore $2n + 1 = O(n)$ with $c = 3$ and $n_0 = 1$. $\blacksquare$
+
+Not every $c$ works: with $c = 2$, the upper bound becomes $2n + 1 \le 2n \iff 1 \le 0$, which never holds.
+
+![Graph showing 2n + 1 at or below 3n for all n ≥ 1](img/big_o_2n_plus_1.svg)
+
+#### Choosing a bound
+
+$2n + 1$ is also $O(n^2)$ and $O(n^3)$, since any function that grows at least as fast as $n$ is also an upper bound. These statements are true but uninformative, so we always give the **tightest** bound, the one that grows at the same rate as $f(n)$: $O(n)$. We make this precise in the Big Theta section.
+
+#### Big O and the worst case
+
+Big O and the worst case are independent ideas. The case determines *which* function we analyze, such as the worst-case running time $T_{\text{worst}}(n)$ or the best-case running time $T_{\text{best}}(n)$; Big O describes *how* we bound it. For example, for insertion sort:
+
+- $T_{\text{best}}(n) = O(n)$ (the best-case running time grows no faster than $g(n) = n$, up to a constant factor).
+- $T_{\text{worst}}(n) = O(n^2)$ (the worst-case running time grows no faster than $g(n) = n^2$, up to a constant factor).
+
+In interviews, "What's the Big O?" usually means the tightest upper bound on the worst-case running time, unless the average or amortized case is specified.
