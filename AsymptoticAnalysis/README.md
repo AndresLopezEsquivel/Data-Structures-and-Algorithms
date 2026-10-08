@@ -81,3 +81,41 @@ Big O and the worst case are independent ideas. The case determines *which* func
 - $T_{\text{worst}}(n) = O(n^2)$ (the worst-case running time grows no faster than $g(n) = n^2$, up to a constant factor).
 
 In interviews, "What's the Big O?" usually means the tightest upper bound on the worst-case running time, unless the average or amortized case is specified.
+
+### Big Omega
+
+For a function $g(n)$, $\Omega(g(n))$ is the **set** of functions that grow at least as fast as $g(n)$, up to a constant factor:
+
+$$
+\Omega(g(n)) = \{\, f(n) : \text{there exist positive constants } c \text{ and } n_0 \text{ such that } 0 \le c \cdot g(n) \le f(n) \text{ for all } n \ge n_0 \,\}
+$$
+
+In other words, $g(n)$ is an **asymptotic lower bound** for $f(n)$: once $n$ is large enough ($n \ge n_0$), $f(n)$ never falls below $g(n)$ scaled by $c$.
+
+As with Big O, we usually write $f(n) = \Omega(g(n))$ to mean $f(n) \in \Omega(g(n))$.
+
+![Graph of f(n) staying at or above c·g(n) for all n ≥ n₀](img/big_omega_general.svg)
+
+#### Example
+
+**Claim:** $2n + 1 = \Omega(n)$.
+
+**Proof.** Choose $c = 1$. We need $0 \le n \le 2n + 1$ for all $n \ge n_0$, so we solve each inequality:
+
+- **Lower bound:** $0 \le n$, which holds whenever $n \ge 0$.
+- **Upper bound:** $n \le 2n + 1 \iff n \ge -1$.
+
+Both inequalities hold for all $n \ge 0$. Since $n_0$ must be positive, we choose $n_0 = 1$: if a bound is true for all $n \ge n_0$, it's also true for any larger $n_0$. Therefore $2n + 1 = \Omega(n)$ with $c = 1$ and $n_0 = 1$. $\blacksquare$
+
+![Graph showing 2n + 1 at or above n for all n ≥ 1](img/big_omega_2n_plus_1.svg)
+
+#### Choosing a bound
+
+$2n + 1$ is also $\Omega(\log n)$ and $\Omega(1)$, since any function that grows no faster than $n$ is also a lower bound. These statements are true but uninformative, so we give the **tightest** lower bound, the one that grows at the same rate as $f(n)$: $\Omega(n)$. We make this precise in the Big Theta section.
+
+#### Big Omega and the best case
+
+Just as Big O is not tied to the worst case, Big Omega is not tied to the best case: the case determines *which* function we analyze, and Big Omega describes *how* we bound it. For example, for insertion sort:
+
+- $T_{\text{best}}(n) = \Omega(n)$ (the best-case running time grows at least as fast as $g(n) = n$, up to a constant factor).
+- $T_{\text{worst}}(n) = \Omega(n^2)$ (the worst-case running time grows at least as fast as $g(n) = n^2$, up to a constant factor).
