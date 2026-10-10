@@ -119,3 +119,64 @@ Just as Big O is not tied to the worst case, Big Omega is not tied to the best c
 
 - $T_{\text{best}}(n) = \Omega(n)$ (the best-case running time grows at least as fast as $g(n) = n$, up to a constant factor).
 - $T_{\text{worst}}(n) = \Omega(n^2)$ (the worst-case running time grows at least as fast as $g(n) = n^2$, up to a constant factor).
+
+### Big Theta
+
+For a function $g(n)$, $\Theta(g(n))$ is the **set** of functions that grow at the same rate as $g(n)$, up to constant factors:
+
+$$
+\Theta(g(n)) = \{\, f(n) : \text{there exist positive constants } c_1, c_2, \text{ and } n_0 \text{ such that } 0 \le c_1 \cdot g(n) \le f(n) \le c_2 \cdot g(n) \text{ for all } n \ge n_0 \,\}
+$$
+
+In other words, $g(n)$ is an **asymptotically tight bound** for $f(n)$: once $n$ is large enough ($n \ge n_0$), $f(n)$ stays between $c_1 \cdot g(n)$ and $c_2 \cdot g(n)$.
+
+As with Big O and Big Omega, we usually write $f(n) = \Theta(g(n))$ to mean $f(n) \in \Theta(g(n))$.
+
+Big Theta combines the two previous definitions:
+
+$$
+f(n) = \Theta(g(n)) \iff f(n) = O(g(n)) \text{ and } f(n) = \Omega(g(n))
+$$
+
+![Graph of f(n) staying between c₁·g(n) and c₂·g(n) for all n ≥ n₀](img/big_theta_general.svg)
+
+#### Example
+
+**Claim:** $2n + 1 = \Theta(n)$.
+
+**Proof.** From the previous sections, $2n + 1 = O(n)$ with $c = 3$, $n_0 = 1$, and $2n + 1 = \Omega(n)$ with $c = 1$, $n_0 = 1$. Choose $c_1 = 1$ and $c_2 = 3$. We need $0 \le n \le 2n + 1 \le 3n$ for all $n \ge n_0$:
+
+- $0 \le n$ holds whenever $n \ge 0$.
+- $n \le 2n + 1 \iff n \ge -1$.
+- $2n + 1 \le 3n \iff n \ge 1$.
+
+All three inequalities hold for all $n \ge 1$, so $n_0 = 1$. Therefore $2n + 1 = \Theta(n)$ with $c_1 = 1$, $c_2 = 3$, and $n_0 = 1$. $\blacksquare$
+
+In general, if the Big O and Big Omega proofs need different starting points, $n_0 = \max(n_0^{O}, n_0^{\Omega})$ works for both.
+
+![Graph showing 2n + 1 between n and 3n for all n ≥ 1](img/big_theta_2n_plus_1.svg)
+
+#### Tight and loose bounds
+
+Big O or Big Omega **alone** can be loose. For example, $2n^2 + 1 = O(n^3)$ and $2n^2 + 1 = \Omega(n)$ are both true, but neither is tight. Only **matching** upper and lower bounds certify tightness: $2n^2 + 1 = O(n^2)$ and $2n^2 + 1 = \Omega(n^2)$, so $2n^2 + 1 = \Theta(n^2)$.
+
+This makes the "tightest bound" from the previous sections precise: a bound $f(n) = O(g(n))$ is **tight** if $f(n) = \Theta(g(n))$; otherwise it's **loose**. The same applies to $f(n) = \Omega(g(n))$.
+
+**Claim:** $2n + 1 \ne \Theta(n^2)$, so $2n + 1 = O(n^2)$ is loose.
+
+**Proof.** The upper bound holds, but the lower bound fails. Suppose $c_1 \cdot n^2 \le 2n + 1$ for all $n \ge n_0$. Dividing both sides by $n^2 > 0$:
+
+$$
+c_1 \le \frac{2}{n} + \frac{1}{n^2}
+$$
+
+The left side is a fixed positive constant, while the right side shrinks toward $0$ as $n$ grows. So for large enough $n$ the inequality fails, whatever $c_1$ we choose. Therefore $2n + 1 \ne \Omega(n^2)$, and so $2n + 1 \ne \Theta(n^2)$. $\blacksquare$
+
+#### Big Theta and insertion sort
+
+Like Big O and Big Omega, Big Theta can bound any case. For example, for insertion sort:
+
+- $T_{\text{best}}(n) = \Theta(n)$ (the best-case running time grows at the same rate as $g(n) = n$, up to constant factors).
+- $T_{\text{worst}}(n) = \Theta(n^2)$ (the worst-case running time grows at the same rate as $g(n) = n^2$, up to constant factors).
+
+When interviewers ask for "the Big O", they want this tight bound on the worst case: an answer $O(g(n))$ where $T_{\text{worst}}(n) = \Theta(g(n))$.
