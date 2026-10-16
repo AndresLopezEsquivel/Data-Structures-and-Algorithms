@@ -38,9 +38,9 @@ In practice, determining $f(n)$ exactly is often difficult or unnecessary: the c
 
 For a function $g(n)$, $O(g(n))$ is the **set** of functions that grow no faster than $g(n)$, up to a constant factor:
 
-$$
+```math
 O(g(n)) = \{\, f(n) : \text{there exist positive constants } c \text{ and } n_0 \text{ such that } 0 \le f(n) \le c \cdot g(n) \text{ for all } n \ge n_0 \,\}
-$$
+```
 
 In other words, $g(n)$ is an **asymptotic upper bound** for $f(n)$: once $n$ is large enough ($n \ge n_0$), $f(n)$ never exceeds $g(n)$ scaled by $c$. The condition $0 \le f(n)$ requires $f(n)$ to be **asymptotically nonnegative**, which always holds for $T(n)$ and $S(n)$.
 
@@ -80,9 +80,9 @@ In interviews, "What's the Big O?" usually means the tightest upper bound on the
 
 For a function $g(n)$, $\Omega(g(n))$ is the **set** of functions that grow at least as fast as $g(n)$, up to a constant factor:
 
-$$
+```math
 \Omega(g(n)) = \{\, f(n) : \text{there exist positive constants } c \text{ and } n_0 \text{ such that } 0 \le c \cdot g(n) \le f(n) \text{ for all } n \ge n_0 \,\}
-$$
+```
 
 In other words, $g(n)$ is an **asymptotic lower bound** for $f(n)$: once $n$ is large enough ($n \ge n_0$), $f(n)$ never falls below $g(n)$ scaled by $c$.
 
@@ -118,9 +118,9 @@ Just as Big O is not tied to the worst case, Big Omega is not tied to the best c
 
 For a function $g(n)$, $\Theta(g(n))$ is the **set** of functions that grow at the same rate as $g(n)$, up to constant factors:
 
-$$
+```math
 \Theta(g(n)) = \{\, f(n) : \text{there exist positive constants } c_1, c_2, \text{ and } n_0 \text{ such that } 0 \le c_1 \cdot g(n) \le f(n) \le c_2 \cdot g(n) \text{ for all } n \ge n_0 \,\}
-$$
+```
 
 In other words, $g(n)$ is an **asymptotically tight bound** for $f(n)$: once $n$ is large enough ($n \ge n_0$), $f(n)$ stays between $c_1 \cdot g(n)$ and $c_2 \cdot g(n)$.
 
