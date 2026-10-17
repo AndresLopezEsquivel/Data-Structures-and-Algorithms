@@ -13,3 +13,7 @@ The rules in this section let us simplify asymptotic expressions without proving
 4. [Sum Rule](04-sum-rule.md)
 5. [Product Rule](05-product-rule.md)
 6. [Transitivity](06-transitivity.md)
+
+## Growth rates
+
+7. [Common Growth Rates](07-growth-rates.md)
