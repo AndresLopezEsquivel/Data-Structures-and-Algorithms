@@ -10,3 +10,4 @@ The rules in this section let us simplify asymptotic expressions without proving
 
 2. [Dropping Constant Factors](02-dropping-constant-factors.md)
 3. [Dropping Lower-Order Terms](03-dropping-lower-order-terms.md)
+4. [Sum Rule](04-sum-rule.md)
