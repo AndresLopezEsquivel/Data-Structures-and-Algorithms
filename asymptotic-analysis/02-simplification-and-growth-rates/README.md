@@ -12,3 +12,4 @@ The rules in this section let us simplify asymptotic expressions without proving
 3. [Dropping Lower-Order Terms](03-dropping-lower-order-terms.md)
 4. [Sum Rule](04-sum-rule.md)
 5. [Product Rule](05-product-rule.md)
+6. [Transitivity](06-transitivity.md)
