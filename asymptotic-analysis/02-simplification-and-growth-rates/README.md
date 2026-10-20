@@ -17,3 +17,4 @@ The rules in this section let us simplify asymptotic expressions without proving
 ## Growth rates
 
 7. [Common Growth Rates](07-growth-rates.md)
+8. [Logarithm and Exponent Bases](08-log-and-exponent-bases.md)
