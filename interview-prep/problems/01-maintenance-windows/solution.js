@@ -10,7 +10,7 @@ function mergeWindows(windows) {
     // Sort the windows (extract the minimum start from windows and sort based on it)
     // -> [[1, 3], [2,6], [6,7], [8,10], [15,18]]
     let sortedWindows = [...windows].sort((a, b) => a[0] - b[0])
-    let mergedWindows = [sortedWindows[0]]; // [[1,3]]
+    let mergedWindows = [[...sortedWindows[0]]]; // [[1,3]]
 
     // i = 1
         // sortedWindows[i] = [2,6]
@@ -45,7 +45,7 @@ function mergeWindows(windows) {
             mergedWindows[mergedWindows.length - 1][1] = 
                 Math.max(currentEnd, sortedWindows[i][1]);
         } else {
-            mergedWindows.push(sortedWindows[i]);
+            mergedWindows.push([...sortedWindows[i]]);
         }
     }
     
