@@ -38,3 +38,9 @@ test('one-window', () => {
     [[8, 10]]
   );
 });
+
+test('does not mutate the input', () => {
+  const input = [[2, 6], [1, 3]];
+  mergeWindows(input);
+  assert.deepEqual(input, [[2, 6], [1, 3]]);
+});
