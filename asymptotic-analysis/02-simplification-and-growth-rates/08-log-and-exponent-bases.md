@@ -32,27 +32,27 @@ $$
 
 1. The change-of-base formula rewrites a logarithm in base $a$ as a logarithm in base $b$:
 
-   $$
-   \log_a n = \frac{\log_b n}{\log_b a} = \frac{1}{\log_b a} \cdot \log_b n
-   $$
+$$
+\log_a n = \frac{\log_b n}{\log_b a} = \frac{1}{\log_b a} \cdot \log_b n
+$$
 
 2. Let $k = \frac{1}{\log_b a}$. It doesn't depend on $n$, so it's a constant. It's also positive, because $a > 1$ and $b > 1$ give $\log_b a > 0$. Step 1 becomes:
 
-   $$
-   \log_a n = k \cdot \log_b n
-   $$
+$$
+\log_a n = k \cdot \log_b n
+$$
 
 3. Choose $c_1 = c_2 = k$ and $n_0 = 1$. The chain to verify is:
 
-   $$
-   0 \le k \cdot \log_b n \le \log_a n \le k \cdot \log_b n
-   $$
+$$
+0 \le k \cdot \log_b n \le \log_a n \le k \cdot \log_b n
+$$
 
-   For all $n \ge 1$, each part holds:
+For all $n \ge 1$, each part holds:
 
-   - $0 \le k \cdot \log_b n$, because $k > 0$ and $\log_b n \ge 0$ for $n \ge 1$.
-   - $k \cdot \log_b n \le \log_a n$, because by step 2 the two sides are equal.
-   - $\log_a n \le k \cdot \log_b n$, for the same reason. $\blacksquare$
+- $0 \le k \cdot \log_b n$, because $k > 0$ and $\log_b n \ge 0$ for $n \ge 1$.
+- $k \cdot \log_b n \le \log_a n$, because by step 2 the two sides are equal.
+- $\log_a n \le k \cdot \log_b n$, for the same reason. $\blacksquare$
 
 This is the same argument as in [dropping constant factors](02-dropping-constant-factors.md): $\log_a n$ is just $\log_b n$ multiplied by a positive constant.
 
@@ -78,21 +78,21 @@ Both proofs use the exponent rule $\frac{x^n}{y^n} = \left(\frac{x}{y}\right)^n$
 
 1. Since $0 < b < a$, the ratio satisfies $0 < \frac{b}{a} < 1$. A power of a number between $0$ and $1$ is never more than $1$, so for all $n \ge 0$:
 
-   $$
-   0 < \left(\tfrac{b}{a}\right)^n \le 1
-   $$
+$$
+0 < \left(\tfrac{b}{a}\right)^n \le 1
+$$
 
 2. Multiply every part by $a^n$. Since $a^n > 0$, the inequalities keep their direction:
 
-   $$
-   0 < \left(\tfrac{b}{a}\right)^n \cdot a^n \le 1 \cdot a^n
-   $$
+$$
+0 < \left(\tfrac{b}{a}\right)^n \cdot a^n \le 1 \cdot a^n
+$$
 
 3. By the exponent rule, $\left(\frac{b}{a}\right)^n \cdot a^n = \frac{b^n}{a^n} \cdot a^n = b^n$:
 
-   $$
-   0 < b^n \le 1 \cdot a^n
-   $$
+$$
+0 < b^n \le 1 \cdot a^n
+$$
 
 So $c = 1$ and $n_0 = 0$ work. $\blacksquare$
 
@@ -104,15 +104,15 @@ $$
 
 1. Divide both sides by $b^n$. Since $b^n > 0$, the inequality keeps its direction:
 
-   $$
-   \frac{a^n}{b^n} \le c
-   $$
+$$
+\frac{a^n}{b^n} \le c
+$$
 
 2. By the exponent rule:
 
-   $$
-   \left(\tfrac{a}{b}\right)^n \le c
-   $$
+$$
+\left(\tfrac{a}{b}\right)^n \le c
+$$
 
 3. Since $a > b$, the ratio satisfies $\frac{a}{b} > 1$. Each time $n$ increases by $1$, $\left(\frac{a}{b}\right)^n$ is multiplied by a number greater than $1$, so it keeps growing and eventually passes any constant $c$. This contradicts the inequality in step 2.
 
