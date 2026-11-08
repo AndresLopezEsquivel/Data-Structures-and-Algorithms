@@ -8,6 +8,7 @@ We focus on large inputs because that is where efficiency, meaning how much time
 
 1. [Asymptotic Notation](01-asymptotic-notation.md)
 2. [Simplification and Growth Rates](02-simplification-and-growth-rates/README.md)
+3. [Analyzing Code](03-analyzing-code/README.md)
 
 ## References
 
