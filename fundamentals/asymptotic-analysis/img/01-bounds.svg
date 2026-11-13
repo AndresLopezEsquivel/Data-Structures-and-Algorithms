@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" width="800" height="300" font-family="Helvetica, Arial, sans-serif" font-size="12">
+  <rect width="800" height="300" fill="#ffffff"/>
+
+  <!-- ===== Left panel: tight bound (Θ) ===== -->
+  <text x="190" y="18" text-anchor="middle" font-size="14" font-weight="bold" fill="#222">Tight: sum is Θ(n)</text>
+  <!-- axes -->
+  <line x1="40" y1="220" x2="350" y2="220" stroke="#888"/>
+  <line x1="40" y1="220" x2="40" y2="30" stroke="#888"/>
+  <text x="345" y="236" text-anchor="end" fill="#555">n (input size)</text>
+  <text x="34" y="34" text-anchor="end" fill="#555">work</text>
+  <!-- n0 marker -->
+  <line x1="100" y1="220" x2="100" y2="40" stroke="#bbb" stroke-dasharray="4 4"/>
+  <text x="100" y="236" text-anchor="middle" fill="#777">n₀ (large n)</text>
+  <!-- ceiling 4n -->
+  <line x1="40" y1="220" x2="340" y2="42" stroke="#d6604d" stroke-width="2.5"/>
+  <text x="230" y="80" text-anchor="end" fill="#d6604d" font-weight="bold">ceiling: 4n → O(n)</text>
+  <!-- T(n) = 3n + 2 -->
+  <line x1="40" y1="211" x2="340" y2="78" stroke="#222" stroke-width="2.5"/>
+  <text x="262" y="125" fill="#222" font-weight="bold">real work: 3n + 2</text>
+  <!-- floor 2n -->
+  <line x1="40" y1="220" x2="340" y2="131" stroke="#4393c3" stroke-width="2.5"/>
+  <text x="340" y="180" text-anchor="end" fill="#4393c3" font-weight="bold">floor: 2n → Ω(n)</text>
+  <text x="190" y="262" text-anchor="middle" fill="#222">Ceiling and floor have the same growth rate (n),</text>
+  <text x="190" y="278" text-anchor="middle" fill="#222">so they meet in the bound: Θ(n).</text>
+
+  <!-- divider -->
+  <line x1="400" y1="20" x2="400" y2="280" stroke="#ddd"/>
+
+  <!-- ===== Right panel: loose bound ===== -->
+  <text x="590" y="18" text-anchor="middle" font-size="14" font-weight="bold" fill="#222">Loose: sum is O(n²)</text>
+  <!-- axes -->
+  <line x1="440" y1="220" x2="750" y2="220" stroke="#888"/>
+  <line x1="440" y1="220" x2="440" y2="30" stroke="#888"/>
+  <text x="745" y="236" text-anchor="end" fill="#555">n (input size)</text>
+  <text x="434" y="34" text-anchor="end" fill="#555">work</text>
+  <!-- n² ceiling -->
+  <polyline fill="none" stroke="#8e44ad" stroke-width="2.5"
+    points="440,220 470,218 500,212 530,202 560,188 590,170 620,148 650,122 680,92 710,58 740,20"/>
+  <text x="700" y="36" text-anchor="end" fill="#8e44ad" font-weight="bold">ceiling: n² → O(n²)</text>
+  <!-- tight ceiling 4n for contrast -->
+  <line x1="440" y1="220" x2="740" y2="140" stroke="#d6604d" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="742" y="134" text-anchor="end" fill="#d6604d" font-size="11">tight ceiling: 4n</text>
+  <!-- T(n) -->
+  <line x1="440" y1="216" x2="740" y2="156" stroke="#222" stroke-width="2.5"/>
+  <text x="742" y="190" text-anchor="end" fill="#222" font-weight="bold">real work: 3n + 2</text>
+  <text x="590" y="262" text-anchor="middle" fill="#222">True (the work stays under it), but far above</text>
+  <text x="590" y="278" text-anchor="middle" fill="#222">the real growth, like "160 cm is at most 2 m".</text>
+</svg>
